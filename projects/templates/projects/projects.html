@@ -2,22 +2,30 @@
 
 {% block content %}
 
-<p>Hello you are on the {{page}} page</p>
-
-{% if number > 10 %}
-    <p>Number is greater than 10</p>
-{% else %}
-    <p>Number is less than 10</p>
-{% endif %}
-
-<hr>
-
 <h1>Projects</h1>
 
-<ul>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Positive Votes</th>
+        <th>Votes</th>
+        <th></th>
+    </tr>
     {% for project in projects %}
-        <li>Title:<a href="{% url 'project' project.id %}">{{project.title}}</a></li> <! taking the url named project, appending to projects.id value >
+        <tr>
+            <td>{{project.id}}</td>
+            <td>{{project.title}}</td>
+            <td>{{project.vote_ratio}}%</td>
+            <td>{{project.vote_total}}</td>
+            <td>{{project.created}}</td>
+            <td><a href="{% url 'project' project.id %}">View</a></td>
+        </tr>
     {% endfor %}
+</table>
+
+<ul>
+
 </ul>
 
 
