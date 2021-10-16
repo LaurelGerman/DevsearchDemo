@@ -1,24 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Project
+from .forms import ProjectForm
 
-projectsList = [
-    {
-        'id': '1',
-        'title': 'Ecommerce Website',
-        'description': 'Fully functional ecommerce website'
-    },
-    {
-        'id': '2',
-        'title': 'Portfolio Website',
-        'description': 'A personal website to write articles and display work'
-    },
-    {
-        'id': '3',
-        'title': 'Social Network',
-        'description': 'An open source project built by the community'
-    }
-]
 
 
 
@@ -33,3 +17,9 @@ def project(request, pk): #pk: dynamic value (primary key)
     #tags = projectObj.tags.all()
     return render(request, 'projects/single-project.html', {'project':projectObj})
     # if not using template: return HttpResponse('SINGLE PROJECT ' + str(pk))
+
+
+def createProject(request):
+    form = ProjectForm()
+    context = {'form':form}
+    return render(request, "projects/project_form.html", context)
