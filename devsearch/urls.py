@@ -16,8 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings #gives access to settings.py file
+from django.conf.urls.static import static #for seeing user-uploaded image urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('projects.urls'))
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #thisis for setting user-uploaded image urls, not entirely sure what it's doing
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) #set url from STATIC_URL to STATIC_ROOT (these are in settings.py)
