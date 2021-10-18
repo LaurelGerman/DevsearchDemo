@@ -22,7 +22,9 @@ from django.conf.urls.static import static #for seeing user-uploaded image urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('projects.urls'))
+    path('', include('users.urls')),
+    path('projects/', include('projects.urls')),
+    #path('users/', include('users.urls')),
 ]
 
 
