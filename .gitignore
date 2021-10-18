@@ -1,8 +1,12 @@
-# Django #
+# Pycache and pyc #
 
-*__pycache__
-__pycache__
 *.pyc
 
-# python virtual environment #
+
+# Dot files #
+.*
+!/.gitignore
+
+
+# Python Virtual Environment #
 env/
