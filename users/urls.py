@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.profiles, name="profiles"),
-    path('users/',views.users, name="profiles"), #empty string means this is the root domain
+    path('users/',views.profiles, name="profiles"), #empty string means this is the root domain
 
 
 ]

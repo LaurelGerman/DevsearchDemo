@@ -32,20 +32,25 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1'] #need to set once debug is false
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'django.contrib.admin', #TODO not in Hakon's
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #TODO in Hakon's: "src"
+    #TODO in Hakon's: "crispy_forms"
+    #TODO in Hakon's: "phonenumber_field"
     
-    'projects.apps.ProjectsConfig',
-    'users.apps.UsersConfig',
+    'projects.apps.ProjectsConfig', #TODO not in Hakon's
+    'users.apps.UsersConfig', #TODO not in Hakon's
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    #TODO not in Hakon's v
     'whitenoise.middleware.WhiteNoiseMiddleware', #this is for serving staticfiles when not in debug mode
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,7 +66,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates'), #TODO not in Hakon's
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -107,11 +112,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#TODO in Hakon's: LOGGING
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+#TODO in Hakon's: LANGUAGE, PHONENUMBER_DEFAULT_REGION
 
 TIME_ZONE = 'UTC'
 
@@ -126,14 +134,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/images/'
+MEDIA_URL = '/images/' #TODO not in Hakon's
 
 
 STATICFILES_DIRS = [ #HAS to be called STATICFILES_DIRS
     os.path.join(BASE_DIR, 'static') #BASE_DIR / 'static' should also work here
+    #TODO Hakon's: BASE_DIR, ("static"), not above line
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') #TODO not in Hakon's
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #this is for production once static files don't work
 # ^once this is configured, run python manage.py collectstatic in terminal; makes a new folder called staticfiles in the project's root directory
 
@@ -141,3 +150,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #this is for production once
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#TODO in Hakon's: crispy form
